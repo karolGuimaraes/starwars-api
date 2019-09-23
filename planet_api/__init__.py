@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint
 from config import Config, DevelopmentConfig
-from planetapi.views import planetapi
+from planet_api.views import planetapi
 from mongoengine import connect, disconnect
 
 api = Flask(__name__)

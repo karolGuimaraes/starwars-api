@@ -1,4 +1,4 @@
-from planetapi import api
+from planet_api import api
 from config import Config, DevelopmentConfig
 
 if __name__ == '__main__':
