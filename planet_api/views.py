@@ -7,6 +7,7 @@ from mongoengine import NotUniqueError
 planetapi = Blueprint('planetapi', __name__)
 
 
+
 @planetapi.route('/listar', methods=['GET'])
 def listar_planetas():
     try:
@@ -28,12 +29,11 @@ def adicionar_planeta():
         return jsonify({'Error': str(error) }), 500
 
 
-@planetapi.route('/buscar_nome', methods=['GET'])
-def buscar_por_nome():
+@planetapi.route('/buscar_nome/<string:name>', methods=['GET'])
+def buscar_por_nome(name):
     try:
-        data = request.get_json()
-        if Planet.objects( nome = data['nome']  ):
-            planet_obj = Planet.objects.get(nome=data['nome'])
+        if Planet.objects( nome = name):
+            planet_obj = Planet.objects.get(nome=name)
             planeta = planet_obj.json()
             planeta.update({"aparicoes": aparicoes(planet_obj) })
             return jsonify({'data': [ planeta ] }), 200
@@ -43,12 +43,11 @@ def buscar_por_nome():
         return jsonify({'Error': 'Internal server error :('}), 500
 
 
-@planetapi.route('/buscar_id', methods=['GET'])
-def buscar_por_id():
+@planetapi.route('/buscar_id/<int:id>', methods=['GET'])
+def buscar_por_id(id=None):
     try:
-        data = request.get_json()
-        if Planet.objects( _id = data['id']  ):
-            planet_obj = Planet.objects.get(_id=data['id'])
+        if Planet.objects( _id = id ):
+            planet_obj = Planet.objects.get(_id=id)
             planeta = planet_obj.json()
             planeta.update({"aparicoes": aparicoes(planet_obj) })
             return jsonify({'data': [ planeta ] }), 200
@@ -58,12 +57,11 @@ def buscar_por_id():
         return jsonify({'Error': 'Internal server error :('}), 500
 
 
-@planetapi.route('/excluir', methods=['DELETE'])
-def remover_planeta():
+@planetapi.route('/excluir/<int:id>', methods=['DELETE'])
+def remover_planeta(id):
     try:
-        data = request.get_json()
-        if Planet.objects.filter(_id=data['id']):
-            planeta = Planet.objects.get(_id=data['id'])
+        if Planet.objects.filter(_id=id):
+            planeta = Planet.objects.get(_id=id)
             planeta.delete()
             return jsonify({ 'mensagem': "Planeta foi excluído com sucesso" }), 200
         else:

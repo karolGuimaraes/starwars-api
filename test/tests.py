@@ -38,43 +38,31 @@ class TestCase(unittest.TestCase):
         self.assertEqual(500, self.response.status_code)
 
     def teste_busca_por_id(self):
-        self.response = api.get('/buscar_id', 
-                                data = json.dumps(dict(id="1")), 
-                                content_type='application/json')
+        self.response = api.get('/buscar_id/1')
         self.assertEqual(200, self.response.status_code)
 
     def teste_buscar_por_id_inexistente(self):
-        self.response = api.get('/buscar_id', 
-                                data = json.dumps(dict(id="1000000")), 
-                                content_type='application/json')
+        self.response = api.get('/buscar_id/1000000')
         self.assertEqual(404, self.response.status_code)
 
     
     def teste_buscar_por_nome(self):
-        self.response = api.get('/buscar_nome', 
-                                data = json.dumps(dict(nome="Sol")), 
-                                content_type='application/json')
+        self.response = api.get('/buscar_nome/Sol')
         self.assertEqual(200, self.response.status_code)
 
 
     def teste_buscar_por_nome_inexistente(self):
-        self.response = api.get('/buscar_nome', 
-                                data = json.dumps(dict(nome="Terra")), 
-                                content_type='application/json')
+        self.response = api.get('/buscar_nome/Terra')
         self.assertEqual(404, self.response.status_code)
 
 
     def teste_excluir_planeta_inexistente(self):
-        self.response = api.delete('/excluir', 
-                                data = json.dumps(dict(id="10000")), 
-                                content_type='application/json')
+        self.response = api.delete('/excluir/1000000')
         self.assertEqual(404, self.response.status_code)
 
 
     def teste_excluir_planeta(self):
-        self.response = api.delete('/excluir', 
-                                data = json.dumps(dict(id="1")), 
-                                content_type='application/json')
+        self.response = api.delete('/excluir/1')
         self.assertEqual(200, self.response.status_code)
 
 if __name__ == '__main__':
