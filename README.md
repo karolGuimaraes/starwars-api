@@ -1,7 +1,6 @@
 # starwars-api
 API que permite o registro dos planetas.
 
-## Droids-API
 
 ### Configurando
  - Clonar o projeto: git clone https://github.com/karolGuimaraes/starwars-api
@@ -13,25 +12,6 @@ API que permite o registro dos planetas.
 ### Funcionamento
 
 Acessando ( http://localhost:5000/ ), onde:
-
-- ` POST /usuario `  Criar um usuário (Administrador ou Anunciante):
-	
-	Criar um usuário para adicionar uma demanda.
-	
-	Se o 'admin' for sim, o usuário é marcado como Administrador.
-	
-	O username é único.
-
-	- Envio:
-		{ 
-			"telefone": "000000000", 
-			"username":"user_test", 
-			"first_name":"test", 
-			"email": "user.silva@gmail.com", 
-			"password": 12345, 
-			"admin": "Sim"
-		}
-
 
 
 - ` GET /listar ` Retorna todos os planetas. 
@@ -47,12 +27,11 @@ Acessando ( http://localhost:5000/ ), onde:
 			}
 
 
-
 - ` DELETE /excluir/<id> ` Excluir um planeta.
 
 - ` GET /buscar_id/<id> ` Buscar um planeta pelo id.
 
-- ` GET /buscar_nome/<id> ` Buscar um planeta pelo nome.
+- ` GET /buscar_nome/<nome> ` Buscar um planeta pelo nome.
 
 
 
