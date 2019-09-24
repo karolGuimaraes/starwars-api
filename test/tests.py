@@ -17,7 +17,7 @@ class TestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         disconnect()
-        connect('planetapitest', host=Config.MONGODB_HOST )
+        connect('planetapitest', host=DevelopmentConfig.MONGODB_HOST )
 
 
     def teste_listar_planetas(self):

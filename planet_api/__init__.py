@@ -7,6 +7,6 @@ api = Flask(__name__)
 
 with api.app_context():
     disconnect()
-    host = Config.MONGODB_HOST 
+    host = DevelopmentConfig.MONGODB_HOST 
     connect('planetapi', host=host)
     api.register_blueprint(planetapi)
