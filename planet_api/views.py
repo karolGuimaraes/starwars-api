@@ -7,7 +7,7 @@ from mongoengine import NotUniqueError
 planetapi = Blueprint('planetapi', __name__)
 
 
-
+@planetapi.route('/')
 @planetapi.route('/listar', methods=['GET'])
 def listar_planetas():
     try:
