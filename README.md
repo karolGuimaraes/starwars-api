@@ -5,6 +5,7 @@ API que permite o registro dos planetas.
 ### Configurando
  - Clonar o projeto: git clone https://github.com/karolGuimaraes/starwars-api
  - ` python3 -m venv env` ( Criar um ambiente virtual )
+ - ` source env/bin/activate ` ( Iniciar o ambiente virtual )
  - Acesse a pasta /starwars_api
  - Para executar o projeto `python run.py`
 
