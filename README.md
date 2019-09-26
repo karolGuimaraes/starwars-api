@@ -7,8 +7,7 @@ API que permite o registro dos planetas.
  - ` python3 -m venv env` ( Criar um ambiente virtual )
  - ` source env/bin/activate ` ( Iniciar o ambiente virtual )
  - ` pip install -r requirements.txt ` ( Instalando dependências )
- - Acesse a pasta /starwars_api
- - Para executar o projeto `python run.py`
+ - Acesse a pasta /starwars-api para executar o projeto com `python run.py`
 
  
 ### Funcionamento
